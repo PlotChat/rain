@@ -34,4 +34,4 @@ function makeRain(){
 
 window.addEventListener("load", makeRain);
 window.addEventListener("resize", makeRain);
-window.addEventListener("beforeunload", removeRain);
+window.addEventListener("beforeunload", makeRain);
