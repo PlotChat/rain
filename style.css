@@ -9,7 +9,7 @@ body{
     background-size:cover;
     background-position:center;
     background: rgb(122,150,162);
-    background: linear-gradient(180deg, rgba(122,150,162,1) 0%, rgba(165,188,204,1) 54%, rgba(209,222,228,1) 84%, rgba(231,239,242,1) 93%, rgba(239,239,239,1) 100%);
+    background: linear-gradient(180deg, rgba(122,150,162,1) 0%, rgba(165,188,204,1) 44%, rgba(209,222,228,1) 94%, rgba(231,239,242,1) 100%);
 }
 
 .container {
@@ -20,13 +20,13 @@ body{
 }
 
 .drop {
-    background-color: #ffffff;
-    width: 1px;
-    height: 10px;   
-    opacity: 60%;
-    top:-10px;
+    background-color: #C4D3DF;
+    width: 2px;
+    height: 12px;   
+    opacity: 100%;
+    top:-12px;
     position: absolute;
-    animation: fall 0.6s linear infinite;
+    animation: fall 0.5s linear infinite;
 }
 
 @keyframes fall {
