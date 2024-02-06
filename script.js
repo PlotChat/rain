@@ -38,8 +38,13 @@ function fadeRain(){
 }
 
 window.addEventListener("load", makeRain);
+
+prevSize = currentWSize();
 window.addEventListener("resize", () => {
-    fadeRain();
-    setTimeout(makeRain,500);  
+    if (prevSize != currentWSize()){
+        fadeRain();
+        setTimeout(makeRain,500);  
+    }
+    prevSize = currentWSize();
 });
 window.addEventListener("beforeunload", makeRain);
