@@ -101,7 +101,13 @@ body{
 
 #welcome{
     text-align:center;
-    margin-top:260px;
+    white-space:nowrap;
+    width:100%;
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    margin-top:290px;
     color:rgb(231, 230, 230);
     -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(255, 255, 255, 0.218));
 }
@@ -118,12 +124,16 @@ body{
 }
 
 #umbrella{
-    position:absolute;
-    width:175px;
-    top:-55px;
-    right:-3px;
+    position:relative;
+}
+
+#umbrella img{
     z-index:-1;
-    transform:rotate(20deg)
+    position:absolute;
+    width:170px;
+    transform:rotate(20deg);
+    left:-55px;
+    bottom:14px;
 }
 
 #tree1 {
@@ -144,7 +154,7 @@ body{
 
 @media (max-width:1024px){
     #welcome{
-        margin-top:220px;
+        margin-top:240px;
     }
 
     #welcomeText1 {
@@ -153,6 +163,12 @@ body{
 
     #welcomeText2 {
         font-size:20px;
+    }
+
+    #umbrella img{
+        width:100px;
+        left:-33px;
+        top:-32px;
     }
 }
 
@@ -167,5 +183,11 @@ body{
 
     #welcomeText2 {
         font-size: 12px;
+    }
+
+    #umbrella img{
+        width:60px;
+        left:-20px;
+        top:-23px;
     }
 }
