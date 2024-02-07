@@ -34,7 +34,7 @@ body{
 
 @keyframes fall {
     0% { top:-12px;}
-    100% { top: 1000px;}
+    100% { top: 1500px;}
 }
 
 @keyframes moveRight {
