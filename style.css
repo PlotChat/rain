@@ -76,12 +76,12 @@ body{
 
     color:rgba(0, 0, 0, 0.66);
     font-weight:bolder;
-    font-size:16px;
 }
 
 .navText{
+    font-size:16px;
     display:flex;
-    width:200px;
+    padding:0 5vw;
     height:60px;
     align-items:center;
     justify-content:center;
@@ -116,11 +116,13 @@ body{
     font-size:100px;
     font-weight:1000;
     position:relative;
+    transition: 0.4s linear;
 }
 
 #welcomeText2{
     font-size:30px;
     font-weight:500;
+    transition: 0.4s linear;
 }
 
 #umbrella{
@@ -189,5 +191,9 @@ body{
         width:60px;
         left:-20px;
         top:-23px;
+    }
+
+    .navText {
+        font-size:13px;
     }
 }
