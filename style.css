@@ -29,7 +29,7 @@ body{
     top:-20px;
     transition: opacity 1s;
     position: absolute;
-    animation: fall 0.75s linear infinite, moveRight 50s linear infinite alternate;
+    animation: fall 0.9s linear infinite, moveRight 50s linear infinite alternate;
 }
 
 @keyframes fall {
