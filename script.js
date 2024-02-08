@@ -24,7 +24,7 @@ function makeRain(){
         drop.className = "drop"; 
         drop.style.opacity = 0.7;
         drop.style.left = Math.random() * currentWSize() + "px"
-        drop.style.animationDelay = "0.5s"
+        drop.style.animationDelay = "0.75s"
 
         container.appendChild(drop);
     }
