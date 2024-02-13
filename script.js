@@ -5,6 +5,9 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 var container = document.getElementById("container");
+var rainContainer = document.getElementById("rainContainer");
+var dropsContainer1 = document.getElementById("drops1");
+var dropsContainer2 = document.getElementById("drops2");
 
 function currentWSize(){
     WSize = window.innerWidth;
@@ -26,7 +29,11 @@ function makeRain(){
         drop.style.left = Math.random() * currentWSize() + "px"
         drop.style.animationDelay = Math.random() + "s"; 
 
-        container.appendChild(drop);
+        dropsContainer1.appendChild(drop);
+
+        if (i>dropsAmount/2){
+            dropsContainer2.appendChild(drop);
+        }
     }
 }
 
