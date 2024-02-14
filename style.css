@@ -1,5 +1,5 @@
 body, html{
-    height:1500px;
+    height:2500px;
     overflow-x:hidden;
     font-family: 'Montserrat';
 }
@@ -7,11 +7,11 @@ body, html{
 body{
     margin:0;
     padding:0;
+    background: rgb(123,146,157);
+background: linear-gradient(180deg, rgba(123,146,157,1) 0%, rgba(177,206,219,1) 51%, rgba(199,231,246,1) 100%);
     background-size:cover;
     background-position:center;
     background-repeat: no-repeat;
-    background: rgb(124,148,158);
-    background: linear-gradient(180deg, rgba(124,148,158,1) 0%, rgba(165,188,204,1) 35%, rgba(175,198,214,1) 68%, rgba(195,219,236,1) 100%);
     background-attachment: fixed;
 }
 
@@ -23,6 +23,7 @@ body{
 }
 
 #rainContainer{
+    z-index: -1;
     width:100%;
     height:100%;
     position: absolute;
@@ -50,12 +51,12 @@ body{
     top:-20px;
     transition: opacity 1s;
     position: absolute;
-    animation: fall 1s linear infinite;
+    animation: fall 1.5s linear infinite;
 }
 
 @keyframes fall {
     from { transform: translateY(0px);}
-    to { transform: translateY(1500px);}
+    to { transform: translateY(2500px);}
 }
 
 @keyframes moveRight {
@@ -75,27 +76,29 @@ body{
     z-index:-1;
     position:absolute;
     filter:brightness(87%);
+    animation-delay: -5s;
 }
 
 #clouds1 img{
-    animation: slideRight calc(10s * var(--i)) linear infinite;
+    animation: slideRight calc(15s * var(--i)) linear infinite;
 }
 
 #clouds2 img{
-    animation: slideLeft calc(10s * var(--j)) linear infinite;
+    animation: slideLeft calc(15s * var(--j)) linear infinite;
 }
 
 @keyframes slideRight {
-    from{transform: translateX(-1500px);}
-    to{transform: translateX(1500px);}
+    from{transform: translateX(-180vw);}
+    to{transform: translateX(180vw);}
 }
 
 @keyframes slideLeft{
-    from{transform: translateX(1500px);}
-    to{transform: translateX(-1500px);}
+    from{transform: translateX(180vw);}
+    to{transform: translateX(-180vw);}
 }
 
 #navMenu {
+    z-index: 9;
     color:rgba(0, 0, 0, 0.66);
     font-weight:bolder;
     position:fixed;
@@ -113,7 +116,7 @@ body{
 }
 
 .navText{
-    font-size:16px;
+    font-size:15px;
     padding:0 5vw;
     height:60px;
     align-items:center;
@@ -134,27 +137,31 @@ body{
 }
 
 #welcome{
-    text-align:center;
-    white-space:nowrap;
-    width:100%;
-    align-items:center;
     display:flex;
     flex-direction:column;
     justify-content: center;
-    margin-top:290px;
+    align-items:center;
+    text-align:center;
+    white-space:nowrap;
+    width:100vw;
+    height:100vh;
     color:rgb(231, 230, 230);
+    margin-bottom:10vh;
+}
+
+#welcomeText{
     -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(255, 255, 255, 0.218));
 }
 
-#welcomeText1{  
-    font-size:100px;
+#welcomeHeading{  
+    font-size:37px;
     font-weight:1000;
     position:relative;
     transition: 0.4s linear;
 }
 
-#welcomeText2{
-    font-size:30px;
+#welcomeBody{
+    font-size:14px;
     font-weight:500;
     transition: 0.4s linear;
 }
@@ -166,76 +173,192 @@ body{
 #umbrella img{
     z-index:-1;
     position:absolute;
-    width:170px;
+    width:60px;
     transform:rotate(20deg);
-    left:-55px;
-    bottom:14px;
+    left:-20px;
+    bottom:5px;
 }
 
-#tree1 {
+#welcomeHR{
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    width:70%;
+    height:2px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 50px;
+}
+
+#aboutSection{
+    width:88%;
+    display:flex;
+    flex-direction: column;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content: center;
+    border: solid rgb(89, 114, 125) 1px;
+    background-color: rgba(228, 226, 226, 0.377);
+    backdrop-filter: blur(20px);
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px rgb(89, 114, 125);
+
+}
+
+#rainGif{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#aboutText{
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    gap:7px;
+}
+
+#aboutTextHeading{
+    font-size:18px;
+    font-weight:600;
+    color:rgb(59, 75, 82);
+}
+
+#aboutTextBody{
+    font-size:14px;
+}
+
+#leavesContainer{
+    width:100%;
+    margin-top:-123px;
+    position:relative;
+}
+
+#leaves1 {
     transform: rotate(-90deg);
+    width:300px;
+    right:70px;
     position:absolute;
-    right:0px;
-    width:50%;
-    top:800px;
 }
 
-#tree2 {
-    transform:rotate(90deg);
-    position:absolute;
-    left:-10px;
-    width:50%;
-    top:450px;
-}
-
-@media (max-width:1024px){
-    #welcome{
-        margin-top:240px;
+@media only screen and (min-width: 480px){
+    #aboutSection{
+        width:80%;
     }
 
-    #welcomeText1 {
+    #aboutTextHeading{
+        font-size:21px;
+    }
+
+    #aboutTextBody{
+        font-size:17px;
+    }
+
+}
+
+@media only screen and (min-width: 768px){
+    .navText{
+        font-size:16px;
+    }
+
+    #welcomeHeading{
         font-size:55px;
     }
 
-    #welcomeText2 {
-        font-size:20px;
+    #welcomeBody{
+        font-size:19px;
     }
 
     #umbrella img{
-        width:100px;
-        left:-33px;
-        top:-32px;
+        width:85px;
+        left: -27px;
+        bottom: 8px;
     }
 
-    #cloudContainer{
-        margin-top:-35vh;
+    #aboutSection{
+        flex-direction:row;
+        width:82%;
+        border:none;
+        box-shadow:none;
+        background-color:transparent;
+        gap:30px;
+    }
+
+    #aboutText{
+        padding:20px;
+        border: solid transparent 1px;
+        background-color: rgba(228, 226, 226, 0.377);
+        backdrop-filter: blur(20px);
+        border-radius: 6px;
+        box-shadow: 5px 5px 10px rgb(89, 114, 125);
+    }
+
+    #aboutTextHeading{
+        font-size:19px;
+    }
+
+    #aboutTextBody{
+        font-size:14px;
+    }
+
+    #rainGif{
+        width:60%;
+        box-shadow: 5px 5px 10px rgb(89, 114, 125);
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    #leaves1{
+        transform: rotate(0);
+        transform: scaleX(-1);
+        transform: rotate(90deg);
+        left:70px;
+        top:-160px;
     }
 }
 
-@media (max-width:520px){
-    #welcome{
-        margin-top:250px;
+@media only screen and (min-width: 1024px){
+    #welcomeHeading{
+        font-size:70px;
     }
 
-    #welcomeText1 {
-        font-size:30px;
-    }
-
-    #welcomeText2 {
-        font-size: 12px;
+    #welcomeBody{
+        font-size:25px;
     }
 
     #umbrella img{
-        width:60px;
-        left:-20px;
-        top:-23px;
+        width:115px;
+        left:-38px;
+        bottom: 10px;
     }
 
-    .navText {
-        font-size:13px;
+
+    #welcomeHR{
+        margin-bottom:70px;
+    }
+    
+    #aboutSection{
+        width:78%;
     }
 
-    #cloudContainer{
-        margin-top:-35vh;
+    #rainGif{
+        width:70%;
+    }
+
+    #aboutText{
+        width:40%;
+        padding:30px;
+        gap:10px;
+    }
+
+    #aboutTextHeading{
+        font-size:22px;
+    }
+
+    #aboutTextBody{
+        font-size:17px;
+    }
+
+    #leaves1{
+        width:410px;
+        left:70px;
+        top:-270px;
     }
 }
