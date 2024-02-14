@@ -1,9 +1,3 @@
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    dropsAmount = 15;
-} else{
-    dropsAmount = 30;
-}
-
 var container = document.getElementById("container");
 var rainContainer = document.getElementById("rainContainer");
 var dropsContainer1 = document.getElementById("drops1");
@@ -55,3 +49,15 @@ window.addEventListener("resize", () => {
     prevSize = currentWSize();
 });
 window.addEventListener("beforeunload", makeRain);
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    dropsAmount = 20;
+    existingDrops = container.querySelectorAll(".drop");
+    existingDrops.forEach(drop => {
+        drop.style.width = "2px";
+        drop.style.height = "10px";
+    });
+
+} else{
+    dropsAmount = 60;
+}
