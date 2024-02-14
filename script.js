@@ -1,7 +1,7 @@
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     dropsAmount = 15;
 } else{
-    dropsAmount = 50;
+    dropsAmount = 30;
 }
 
 var container = document.getElementById("container");

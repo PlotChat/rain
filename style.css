@@ -45,17 +45,17 @@ body{
     background:linear-gradient(transparent,#ffffff);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    width: 3px;
+    width: 4px;
     height: 15px;   
     top:-20px;
     transition: opacity 1s;
     position: absolute;
-    animation: fall 0.7s linear infinite;
+    animation: fall 1s linear infinite;
 }
 
 @keyframes fall {
-    0% { top:-12px;}
-    100% { top: 1500px;}
+    from { transform: translateY(0px);}
+    to { transform: translateY(1500px);}
 }
 
 @keyframes moveRight {
@@ -86,13 +86,13 @@ body{
 }
 
 @keyframes slideRight {
-    from{left: -1500px;}
-    to{left: 1500px;}
+    from{transform: translateX(-1500px);}
+    to{transform: translateX(1500px);}
 }
 
 @keyframes slideLeft{
-    from{right: -1500px;}
-    to{right: 1500px;}
+    from{transform: translateX(1500px);}
+    to{transform: translateX(-1500px);}
 }
 
 #navMenu {
