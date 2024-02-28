@@ -1,10 +1,10 @@
 body, html{
-    height:2500px;
     overflow-x:hidden;
     font-family: 'Montserrat';
 }
 
 body{
+    width:100%;
     margin:0;
     padding:0;
     background: rgb(123,146,157);
@@ -24,16 +24,16 @@ body{
 }
 
 #container {
-    width: 100%;
-    height: 100%;
+    width:100%;
     position: relative;
     overflow: hidden;
 }
 
+/* Raindrops */
+
 #rainContainer{
     z-index: 1;
-    width:100%;
-    height:100%;
+    width:100vw;
     position: absolute;
     display:flex;
     flex-direction: row;
@@ -41,8 +41,7 @@ body{
 
 #drops1, #drops2{
     position:absolute;
-    width:100%;
-    height:100%;
+    width:100vw;
     animation: moveRight 25s linear infinite;
 }
 
@@ -54,17 +53,17 @@ body{
     background:linear-gradient(transparent,#ffffff);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    width: 4px;
+    width: 0.25vw;
     height: 20px;   
-    top:-20px;
+    top:-10vh;
     transition: opacity 1s;
     position: absolute;
     animation: fall 2s linear infinite;
 }
 
 @keyframes fall {
-    from { transform: translateY(0px);}
-    to { transform: translateY(2500px);}
+    from { transform: translateY(0);}
+    to { transform: translateY(calc(var(--document-height) + 10vh));}
 }
 
 @keyframes moveRight {
@@ -72,69 +71,77 @@ body{
     to {transform: translateX(100%);}
 }
 
-#cloudContainer {
-    position:absolute;
-    height:100px;
-    width:100%;
-    margin-top:-37vh;
-    transition: 0.4s;
-}
+/* Clouds */
 
+#cloudContainer {
+    z-index:10;
+    position:fixed;
+    display:flex;
+    align-items: start;
+    transition: 0.4s;
+    margin-top: -60px;
+}
 #cloudContainer img{
-    z-index:-1;
     position:absolute;
+    width: 700px;
     filter:brightness(87%);
     animation-delay: -5s;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
+    pointer-events: none;
+}
+
+#clouds1, #clouds2{
+    display:flex;
+    align-items: center;
 }
 
 #clouds1 img{
-    animation: slideRight calc(15s * var(--i)) linear infinite;
+    animation: slideRight calc(35s * var(--i)) linear infinite;
 }
 
 #clouds2 img{
-    animation: slideLeft calc(15s * var(--j)) linear infinite;
+    animation: slideLeft calc(35s * var(--j)) linear infinite;
 }
 
 @keyframes slideRight {
-    from{transform: translateX(-180vw);}
-    to{transform: translateX(180vw);}
+    from{transform: translateX(-100vw);}
+    to{transform: translateX(100vw);}
 }
 
 @keyframes slideLeft{
-    from{transform: translateX(180vw);}
-    to{transform: translateX(-180vw);}
+    from{transform: translateX(100vw);}
+    to{transform: translateX(-100vw);}
 }
 
+/* Navigation Menu */
+
 #navMenu {
-    z-index: 9;
-    color:rgba(0, 0, 0, 0.66);
-    font-weight:bolder;
+    z-index: 10;
+    position:relative;
     position:fixed;
-    top:48px;
-    left:50%;
-    width:100%;
-    transform:translate(-50%,-50%);
     display:flex;
-    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:9vh;
 }
 
 #navMenuText{
+    position:absolute;
+    position:relative;
     display:flex;
+    align-items: center;
+    justify-content:center;
 }
 
 .navText{
-    font-size:15px;
-    padding:0 5vw;
-    height:60px;
+    font-weight:bolder;
+    color:rgba(0, 0, 0, 0.66);
+    font-size:clamp(0.8rem, 4vw, 1rem);
+    width:25vw;
+    height:9vh;
+    display:flex;
     align-items:center;
     justify-content:center;
     cursor:pointer;
-    display:flex;
 }
 
 .navText:hover{
@@ -148,6 +155,8 @@ body{
     transition: 0.3s;
 }
 
+/* Welcome */
+
 #welcome{
     display:flex;
     flex-direction:column;
@@ -155,44 +164,60 @@ body{
     align-items:center;
     text-align:center;
     white-space:nowrap;
-    width:100vw;
+    width:100%;
     height:100vh;
     color:rgb(231, 230, 230);
-    margin-bottom:10vh;
 }
 
 #welcomeText{
-    -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(255, 255, 255, 0.218));
+    -webkit-box-reflect: below 5px linear-gradient(transparent, rgba(255, 255, 255, 0.222));
 }
 
 #welcomeHeading{  
-    font-size:35px;
+    font-size:clamp(2rem, 9.5vw, 4rem);
     font-weight:1000;
     position:relative;
     transition: 0.4s linear;
 }
 
 #welcomeBody{
-    font-size:13px;
+    font-size:clamp(0.5rem, 4vw, 1.5rem);
     font-weight:500;
     transition: 0.4s linear;
+}
+
+#disableRainBtn{
+    z-index:4;
+    position:absolute;
+    position:fixed;
+    top:10vh;
+    left:10px;
+    background-color:rgb(174, 202, 215) ;
+}
+
+#disableRainBtn:hover{
+    background-color: rgb(201, 228, 241);
 }
 
 #umbrella{
     position:relative;
 }
 
+#letterI{
+    position:absolute;
+}
+
 #umbrella img{
     z-index:-1;
     position:absolute;
-    width:60px;
+    width:145%;
     transform:rotate(20deg);
-    left:-20px;
-    bottom:5px;
-    transition: 0.4s;
+    bottom:12%;
+    left:-48%;
+    pointer-events: none;
 }
 
-#welcomeHR{
+.fancyHR{
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
     width:70%;
     height:2px;
@@ -201,15 +226,16 @@ body{
     margin-bottom: 50px;
 }
 
+/* About */
+
 #aboutSection{
-    width:88%;
+    width: clamp(300px, 55vw, 55vw);
     display:flex;
     flex-direction: column;
     margin-left:auto;
     margin-right:auto;
     justify-content: center;
-    border: solid rgb(89, 114, 125) 1px;
-    background-color: rgba(228, 226, 226, 0.377);
+    background-color: rgba(228, 226, 226, 0.479);
     backdrop-filter: blur(20px);
     border-radius: 6px;
     box-shadow: 5px 5px 10px rgb(89, 114, 125);
@@ -229,72 +255,187 @@ body{
 }
 
 #aboutTextHeading{
-    font-size:19px;
+    text-wrap:nowrap;
+    font-size:clamp(1.2rem, 1.5vw, 2rem);
     font-weight:600;
     color:rgb(59, 75, 82);
 }
 
 #aboutTextBody{
-    font-size:14px;
+    font-size:clamp(0.8rem, 1vw, 1.5rem);
 }
 
 #leavesContainer{
     width:100%;
-    margin-top:-123px;
     position:relative;
 }
 
 #leaves1 {
-    transform: rotate(-90deg);
-    width:300px;
-    right:70px;
+    width:500px;
+    right:0px;
+    top:-40px;
     position:absolute;
     filter: brightness(90%) contrast(80%);
+    pointer-events: none;
+}
+
+/* Thoughts */
+
+#thoughtSection{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    gap:12px;
+}
+
+.thoughtTitle{
+    z-index: 5;
+    margin-bottom:0px;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:clamp(400px, 50vw, 60%);
+    height:clamp(100px, 50vh, 230px);
+    margin-left:auto;
+    margin-right:auto;
+    transition: 0.8s;
+}
+
+#thoughtTitleText{
+    z-index: 1;
+    text-align:center;
+    font-size:clamp(1.25rem, 1vw ,1.6rem);
+    font-weight:600;
+    color:rgb(80, 119, 136);
+    pointer-events: none;
+}
+
+#thoughtCloud {
+    z-index: -1;
+    position:absolute;
+    width:100%;
+    filter:brightness(95%);
+    opacity:80%;
+    pointer-events: none;
+}
+
+.thoughtTitle:hover{
+    filter:brightness(90%);
+    transform:translateY(3%);
+}
+
+.thoughtCardContainer{
+    width:clamp(300px, 80vw ,500px);
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.thoughtCard{
+    height:120px;
+    display:flex;
+    flex-direction: row;
+    background-color: rgba(228, 226, 226, 0.479);
+}
+
+.raindropShape{
+    width:35px;
+}
+
+.thoughtText{
+    display:flex;
+    flex-direction: column;
+}
+
+.thoughtHeading{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:0;
+    width:30%;
+    height:100%;
+}
+
+.thoughtBody{
+    backdrop-filter: blur(20px);
+    width:70%;
+    padding:3%;
+    font-size:clamp(0.8rem, 1vw, 1rem);
+}
+
+#midthoughtHR{
+    background: rgb(151,169,177);
+    background: linear-gradient(90deg, transparent 0%, transparent 16%, rgba(182,198,204,1) 32%, rgba(197,211,217,1) 50%, rgba(182,198,204,1) 68%, transparent 84%, transparent 100%);
+    height:3px;
+    border-radius: 20px;
+    margin:auto;
+    width:95%;
+}
+
+#thought1{
+    box-shadow: 5px 0px 10px rgb(89, 114, 125);
+}
+
+#thought1 .thoughtHeading{
+    background: rgb(117,154,165);
+    background: linear-gradient(90deg, rgba(117,154,165,1) 0%, rgba(123,158,169,1) 26%, rgba(150,181,191,1) 64%, rgba(163,193,203,1) 84%, transparent 100%);
+}
+
+#thought2{
+    box-shadow: 5px 10px 10px rgb(89, 114, 125);
+}
+
+#thought2 .thoughtHeading{
+    background: rgb(117,154,165);
+    background: linear-gradient(90deg, rgba(117,154,165,1) 0%, rgba(123,158,169,1) 26%, rgba(150,181,191,1) 64%, rgba(163,193,203,1) 84%, transparent 100%);
+    opacity:60%;
+}
+
+#thought2 .raindropShape{
+    transform: rotate(180deg);
+}
+
+#thought3{
+    display:none;
+}
+
+.thoughtHR{
+    border-top: solid rgb(89, 114, 125) 1px;
+}
+
+#log{
+    z-index:1;
+    position:absolute;
+    right:0px;
+    width:1000px;
+    filter:brightness(75%);
 }
 
 @media only screen and (min-width: 768px){
-    .navText{
-        font-size:16px;
-    }
-
-    #welcomeHeading{
-        font-size:55px;
-    }
-
-    #welcomeBody{
-        font-size:19px;
-    }
-
-    #umbrella img{
-        width:85px;
-        left: -27px;
-        bottom: 8px;
+    #cloudContainer{
+        margin-top:-30px;
     }
 
     #aboutSection{
         flex-direction:row;
-        width:82%;
         border:none;
         box-shadow:none;
         background-color:transparent;
+        width: clamp(600px, 70vw, 1300px);
         gap:30px;
     }
 
     #aboutText{
+        width:40%;
         padding:20px;
         border: solid transparent 1px;
         background-color: rgba(228, 226, 226, 0.377);
         backdrop-filter: blur(20px);
         border-radius: 6px;
         box-shadow: 5px 5px 10px rgb(89, 114, 125);
-    }
-
-    #aboutTextHeading{
-        font-size:19px;
-    }
-
-    #aboutTextBody{
-        font-size:14px;
     }
 
     #rainGif{
@@ -305,63 +446,15 @@ body{
     }
 
     #leaves1{
-        transform: rotate(0);
+        width:46%;
         transform: scaleX(-1);
-        transform: rotate(90deg);
-        left:70px;
-        top:-160px;
+        top:-80px;
+        left:0;
     }
 }
 
 @media only screen and (min-width: 1024px){
-    #cloudContainer {
-        margin-top: -35vh;
-    }
-
-    #welcomeHeading{
-        font-size:70px;
-    }
-
-    #welcomeBody{
-        font-size:25px;
-    }
-
-    #umbrella img{
-        width:115px;
-        left:-38px;
-        bottom: 10px;
-    }
-
-
-    #welcomeHR{
+    .fancyHR{
         margin-bottom:70px;
-    }
-    
-    #aboutSection{
-        width:78%;
-    }
-
-    #rainGif{
-        width:70%;
-    }
-
-    #aboutText{
-        width:40%;
-        padding:30px;
-        gap:10px;
-    }
-
-    #aboutTextHeading{
-        font-size:22px;
-    }
-
-    #aboutTextBody{
-        font-size:17px;
-    }
-
-    #leaves1{
-        width:410px;
-        left:70px;
-        top:-270px;
     }
 }

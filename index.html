@@ -12,31 +12,38 @@
 <body>
     <div id="bg"></div>
     <div id="container">
+        <button id="disableRainBtn" class="rainEnabled">disable / enable rain (dev)</button>
         <div id="rainContainer">
             <!--Drops are created here-->
             <div id="drops1"></div>
             <div id="drops2"></div>
         </div>
-        <div id="navMenu">
-            <div id="cloudContainer">
-                <div id="clouds1">
-                    <img style="width:700px;--i:2" src="images\cloud1.png">
-                    <img style="width:700px;--i:1.75" src="images\cloud2.png">
-                    <img style="width:700px;--i:1.5;" src="images\cloud3.png">
-                    <img style="width:700px;--i:1;" src="images\cloud4.png">
-                </div>
-                <div id="clouds2">
-                    <img style="width:700px;--j:1" src="images\cloud1.png">
-                    <img style="width:700px;--j:1.5" src="images\cloud2.png">
-                    <img style="width:700px;--j:1.75;" src="images\cloud3.png">
-                    <img style="width:700px;--j:2;" src="images\cloud4.png">
-                </div>
+        <div id="cloudContainer">
+            <div id="clouds1">
+                <img style="--i:2" src="images\cloud1.png">
+                <img style="--i:1.75" src="images\cloud2.png">
+                <img style="--i:1.5;" src="images\cloud3.png">
+                <img style="--i:1;" src="images\cloud4.png">
+                <img style="--i:0.75" src="images\cloud5.png">
+                <img style="--i:0.5" src="images\cloud6.png">
+                <img style="--i:0.25" src="images\cloud7.png">
             </div>
+            <div id="clouds2">
+                <img style="--j:0.25" src="images\cloud1.png">
+                <img style="--j:0.5" src="images\cloud2.png">
+                <img style="--j:0.75;" src="images\cloud3.png">
+                <img style="--j:1;" src="images\cloud4.png">
+                <img style="--j:1.5" src="images\cloud5.png">
+                <img style="--j:1.75" src="images\cloud6.png">
+                <img style="--j:2" src="images\cloud7.png">
+            </div>
+        </div>
+        <div id="navMenu">
             <div id="navMenuText">
-                <div class="navText"><a>About</a></div>
+                <div class="navText"><a>Home</a></div>
                 <div class="navText"><a>Thoughts</a></div>
                 <div class="navText"><a>Misc</a></div>
-                <div class="navText"><a>Webs</a></div>
+                <div class="navText"><a>Forecast</a></div>
             </div>
         </div>
         <div id="welcome">
@@ -45,7 +52,9 @@
                 <div id="welcomeBody">a website all about this weather.</div>
             </div>
         </div>
-        <div id="welcomeHR"></div>
+
+        <div class="fancyHR"></div>
+
         <div id="aboutSection">
             <img id="rainGif" src="images\raingif.gif">
             <div id="aboutText">
@@ -56,6 +65,54 @@
         <div id="leavesContainer">
             <img src="images\tree.png" id="leaves1">
         </div>
+
+        <div class="fancyHR"></div>
+
+        <div style="height:100px;"></div>
+        <div id="thoughtSection">
+            <div class="thoughtTitle">
+                <img id="thoughtCloud" src="images\thoughtCloud.png">
+                <div id="thoughtTitleText">
+                    <div>Thoughts</div>
+                </div>
+            </div>
+            <div class="thoughtCardContainer">
+                <div class="thoughtCard" id="thought1">
+                    <div class="thoughtHeading">
+                        <img class="raindropShape" src="images\raindrop1.png">
+                        Thought 1
+                    </div>
+                    <div class="thoughtHR"></div>
+                    <div class="thoughtBody">
+                        You may talk to the rain, and the rain will mindfully response back to you.
+                    </div>
+                </div>
+                <div id="midthoughtHR"></div>
+                <div class="thoughtCard" id="thought2">
+                    <div class="thoughtHeading">
+                        <img class="raindropShape" src="images\raindrop2.png">
+                        Thought 2
+                    </div>
+                    <div class="thoughtHR"></div>
+                    <div class="thoughtBody">
+                        Rain has spiritual purity that can wash off all of your problems away.
+                    </div>
+                </div>
+                <div class="thoughtCard" id="thought3">
+                    <div class="thoughtHeading">
+                        Thought 3
+                    </div>
+                    <div class="thoughtHR"></div>
+                    <div class="thoughtBody">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quia fugiat illum nobis, eveniet veritatis.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img id="log" src="images\log.png" style="display:none">
+
+        
+        <div id="footer" style="height:1000px;"></div>
     </div>
 
     <script src="script.js" defer></script>
